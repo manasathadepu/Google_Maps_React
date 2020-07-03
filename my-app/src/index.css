@@ -1,0 +1,20 @@
+h1{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+}
+
+.table {
+  margin: 75px 0 10px 0;
+    color: #212529;
+    text-align: center;
+}
+
+.paginationBtns{
+  text-align: center;
+}
+
+.btn {
+  margin: 10px;
+}
