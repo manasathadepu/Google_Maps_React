@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, FormEvent } from 'react';
 import {
   useLoadScript
 } from '@react-google-maps/api';
@@ -6,21 +6,22 @@ import DisplayMaps from './DisplayMaps';
 import bixiStations from './bixiPlaces';
 import DisplayList from './DisplayList';
 
-const libraries =  ["places"];
+const libraries: string[] =  ["places"];
 
-export default function App() {
+export default function App() : JSX.Element {
   const [mapView, setMapView] = useState(true)
 
+  // storing googleAPI key in .env.local instead of directly exposing it.
   const {isLoaded, loadError} = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     libraries
   });
 
-  if(loadError) return "Error loading maps";
-  if(!isLoaded) return "Loading Maps";
+  if(loadError) return <div>Error loading maps</div>
+  if(!isLoaded) return  <div> Loading Maps </div>
  
 
-  const handlingView = (event) => {
+  const handlingView = (event: FormEvent) => {
     event.preventDefault();
     setMapView(!mapView);
   }
@@ -42,3 +43,6 @@ export default function App() {
     </div>
   </Fragment>
 }
+
+// this is the main logic where we will establish connection between
+// google maps interface and display maps as intial view
