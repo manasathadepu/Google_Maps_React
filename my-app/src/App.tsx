@@ -17,7 +17,6 @@ export default function App() : JSX.Element {
     libraries
   });
 
-  if(loadError) return <div>Error loading map</div>
   if(!isLoaded) return  <div> Loading Maps </div>
  
 
