@@ -18,6 +18,7 @@ export default function App() : JSX.Element {
   });
 
   if(loadError) return <div>Error loading maps</div>
+  if(!isLoaded) return  <div> Loading Maps </div>
  
 
   const handlingView = (event: FormEvent) => {
